@@ -12,8 +12,15 @@ import { galleryMarkup } from './js/markup';
 import { refs } from './js/refs';
 import { handleHideAnime, handleStartAnime } from './js/anime';
 
+const refs = {
+  galleryRef: document.querySelector('.gallery'),
+  formRef: document.querySelector('#search-form'),
+  formBtnRef: document.querySelector('#search-form button'),
+  formInputRef: document.querySelector('#search-form input'),
+};
+
 const BASE_URL = 'https://pixabay.com/api/';
-const API_KEY = '38110129-67a9a84d818f0afdbf48a1e7d';
+const API_KEY = '38213752-693062bcc99b3e861e328b0da';
 
 let pageCounter = 1;
 let pagesCount = 1;
@@ -23,7 +30,22 @@ let perPage = 40;
 const options = {
   timeout: 8000,
 };
-
+const galleryMarkup = data => {
+  return data
+    .map(
+      photo => `<a href='${photo.largeImageURL}' class='gallery__link'>
+    <img class='gallery__image' src='${photo.webformatURL}' alt='${photo.tags}' loading='lazy' />
+    <div class='info'>
+      <p class='info-item likes'>${photo.likes}</p>
+      <p class='info-item views'>${photo.views}</p>
+      <p class='info-item comments'>${photo.comments}</p>
+      <p class='info-item downloads'>${photo.downloads}</p>
+    </div>
+    </a>
+  `
+    )
+    .join('');
+};
 const lightBox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 100,
@@ -124,6 +146,7 @@ const loadMoreHandler = () => {
     }
   });
 };
+
 
 window.addEventListener(
   'scroll',
