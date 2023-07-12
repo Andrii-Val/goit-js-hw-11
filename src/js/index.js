@@ -34,13 +34,23 @@ const galleryMarkup = data => {
   return data
     .map(
       photo => `<a href='${photo.largeImageURL}' class='gallery__link'>
-    <img class='gallery__image' src='${photo.webformatURL}' alt='${photo.tags}' loading='lazy' />
-    <div class='info'>
-      <p class='info-item likes'>${photo.likes}</p>
-      <p class='info-item views'>${photo.views}</p>
-      <p class='info-item comments'>${photo.comments}</p>
-      <p class='info-item downloads'>${photo.downloads}</p>
-    </div>
+    <div class="photo-card">
+  <img src="${photo.webformatURL}" alt="${photo.tags}" loading="lazy" />
+  <div class="info">
+    <p class="info-item">
+      <b>Likes ${photo.likes}</b>
+    </p>
+    <p class="info-item">
+      <b>Views ${photo.views}</b>
+    </p>
+    <p class="info-item">
+      <b>Comments ${photo.comments}</b>
+    </p>
+    <p class="info-item">
+      <b>Downloads${photo.downloads}</b>
+    </p>
+  </div>
+</div>
     </a>
   `
     )
