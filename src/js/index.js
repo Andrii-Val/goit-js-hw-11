@@ -8,9 +8,9 @@ import _ from 'lodash';
 // const scroll = new OnlyScroll(document.querySelector('body'));
 // scroll.scrollContainer();
 
-import { galleryMarkup } from './js/markup';
-import { refs } from './js/refs';
-import { handleHideAnime, handleStartAnime } from './js/anime';
+// import { galleryMarkup } from './js/markup';
+// import { refs } from './js/refs';
+import { handleHideAnime, handleStartAnime } from './anime';
 
 const refs = {
   galleryRef: document.querySelector('.gallery'),
