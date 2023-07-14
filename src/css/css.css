@@ -15,7 +15,7 @@ width: 400px;
 
 }
 .info-item{
-   
+    
    font-style: normal;
    color: #000;
    list-style: none;
@@ -50,6 +50,9 @@ border-bottom: 3px solid #E7E9FC;
     font-size: 16px;
     line-height: 1.5;
 }
+
+
+
 body{
     text-align: center;
     background-color: darkgrey;

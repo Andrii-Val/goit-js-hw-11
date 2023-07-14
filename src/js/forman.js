@@ -1,4 +1,4 @@
-// UTIL
+
 const PI = Math.PI,
   TWO_PI = Math.PI * 2;
 
@@ -18,7 +18,7 @@ Util.lerp = function (value1, value2, amount) {
 Util.clamp = function (value, min, max) {
   return Math.max(min, Math.min(max, value));
 };
-// Vector
+
 class Vector {
   constructor(x, y) {
     this.x = x || 0;
@@ -97,14 +97,14 @@ class Vector {
   }
 }
 
-// Init canvas
+
 let canvas = document.createElement('canvas'),
   ctx = canvas.getContext('2d'),
   H = (canvas.height = 0),
   W = (canvas.width = 0);
 document.body.appendChild(canvas);
 
-// Mouse
+
 let mouse = {
   x: W / 2,
   y: H / 2,
@@ -117,7 +117,7 @@ document.body.onresize = function (event) {
   H = canvas.height = window.innerHeight;
   W = canvas.width = window.innerWidth;
 };
-// Let's go
+
 class Arrow {
   constructor(x, y, target) {
     this.position = new Vector(x, y);
@@ -156,7 +156,7 @@ class Arrow {
   }
   update() {
     let old_position = this.position.copy();
-    // Focus on target
+ 
     let t = new Vector(this.target.x, this.target.y),
       angle = this.position.angle(t);
     let d_f_target = t.dist(this.position);
@@ -167,7 +167,7 @@ class Arrow {
     );
     this.addForce(f);
 
-    // Update position and velocity
+   
     this.velocity.add(this.acceleration);
     if (d_f_target < 800) {
       this.velocity.limit(
@@ -183,7 +183,7 @@ class Arrow {
       this.velocity.limit(this.topSpeed);
     }
     this.position.add(this.velocity);
-    // Reset acceleration for the next loop
+   
     this.acceleration.mult(0);
     this.travelled_distance += old_position.dist(this.position);
 
@@ -242,7 +242,7 @@ class Arrow {
     grd.addColorStop(0.9, 'rgba(255,255,120,0)');
     grd.addColorStop(1, 'rgba(0,0,0,0)');
 
-    // Fill with gradient
+ 
     ctx.fillStyle = grd;
     ctx.fillRect(
       this.position.x - gradient_size / 2,
@@ -311,12 +311,12 @@ ctx.lineJoin = 'round';
 
 loop();
 
-export function handleHideAnime() {
+export function handleHideForman() {
   const anime = document.querySelector('canvas');
   anime.style.display = 'none';
 }
 
-export function handleStartAnime() {
+export function handleStartForman() {
   const anime = document.querySelector('canvas');
   anime.style.display = 'block';
 }

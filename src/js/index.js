@@ -5,7 +5,7 @@ import Notiflix from 'notiflix';
 
 import _ from 'lodash';
 
-import { handleHideAnime, handleStartAnime } from './anime';
+import { handleHideForman, handleStartForman } from './forman';
 
 const refs = {
   galleryRef: document.querySelector('.gallery'),
@@ -94,7 +94,7 @@ const getImages = async value => {
 
 refs.formRef.addEventListener('submit', async e => {
   e.preventDefault();
-  // handleHideAnime();
+ 
 
   refs.galleryRef.innerHTML = '';
   pageCounter = 1;
@@ -104,14 +104,14 @@ refs.formRef.addEventListener('submit', async e => {
       const { hits, totalHits } = res.data;
       pagesCount = Math.ceil(totalHits / perPage);
       if (hits.length === 0) {
-        // handleStartAnime();
+       
         refs.galleryRef.innerHTML = '';
         return Notiflix.Notify.failure(
           'Sorry, there are no images matching your search query. Please try again.',
           options
         );
       } else if (pagesCount === pageCounter) {
-        handleHideAnime();
+        handleHideForman();
         refs.galleryRef.innerHTML = '';
         Notiflix.Notify.success(`Hooray! We found ${totalHits} images.`);
         refs.galleryRef.insertAdjacentHTML('beforeend', galleryMarkup(hits));
@@ -121,14 +121,14 @@ refs.formRef.addEventListener('submit', async e => {
           options
         );
       }
-      handleHideAnime();
+      handleHideForman();
       refs.galleryRef.insertAdjacentHTML('beforeend', galleryMarkup(hits));
       lightBox.refresh();
       return Notiflix.Notify.success(`Hooray! We found ${totalHits} images.`);
     })
     .catch(error => {
       console.log(error.code);
-      handleStartAnime();
+      handleStartForman();
       return Notiflix.Notify.failure(
         'Oops, something went wrong! ' + `Error is ${error.message}`
       );
