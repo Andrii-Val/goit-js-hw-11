@@ -100,8 +100,8 @@ class Vector {
 // Init canvas
 let canvas = document.createElement('canvas'),
   ctx = canvas.getContext('2d'),
-  H = (canvas.height = window.innerHeight),
-  W = (canvas.width = window.innerWidth);
+  H = (canvas.height = 0),
+  W = (canvas.width = 0);
 document.body.appendChild(canvas);
 
 // Mouse

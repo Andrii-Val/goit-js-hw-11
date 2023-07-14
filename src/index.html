@@ -6,17 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="./css/css.css">
 </head>
 <body>
-     <h1>Looking for images together</h1>
-    <div class="search-box">
-        <form class="search-form" id="search-form">
-            <input type="text" name="searchQuery" autocomplete="off" placeholder="Search images..." id="srch" required>
-            <button type="submit" class="js-element">
-                <i class="fa fa-search"></i>Search
-            </button>
-        </form>
-    </div>
+    <header>
+        <h1>Image Search App</h1>
+        <div class="search-box">
+            <form class="search-form" id="search-form">
+                <input type="text" name="searchQuery" autocomplete="off" placeholder="Search images..." id="srch" required>
+                <button type="submit" class="js-element">
+                    <i class="fa fa-search"></i>
+                </button>
+            </form>
+        </div>
+    </header>
     
     <span class="loader" style="display:none"></span>
     <div class="gallery"></div>

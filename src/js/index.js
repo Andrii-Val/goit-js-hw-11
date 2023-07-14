@@ -2,14 +2,9 @@ import axios from 'axios';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import Notiflix from 'notiflix';
+
 import _ from 'lodash';
-// import OnlyScroll from 'only-scrollbar';
 
-// const scroll = new OnlyScroll(document.querySelector('body'));
-// scroll.scrollContainer();
-
-// import { galleryMarkup } from './js/markup';
-// import { refs } from './js/refs';
 import { handleHideAnime, handleStartAnime } from './anime';
 
 const refs = {
@@ -38,16 +33,16 @@ const galleryMarkup = data => {
   <img src="${photo.webformatURL}" alt="${photo.tags}" loading="lazy" />
   <div class="info">
     <p class="info-item">
-      <b>Likes ${photo.likes}</b>
+      <b>Likes<br> ${photo.likes}</b>
     </p>
     <p class="info-item">
-      <b>Views ${photo.views}</b>
+      <b>Views<br> ${photo.views}</b>
     </p>
     <p class="info-item">
-      <b>Comments ${photo.comments}</b>
+      <b>Comments<br> ${photo.comments}</b>
     </p>
     <p class="info-item">
-      <b>Downloads${photo.downloads}</b>
+      <b>Downloads <br>${photo.downloads}</b>
     </p>
   </div>
 </div>
@@ -171,3 +166,5 @@ window.addEventListener(
     }
   }, 200)
 );
+
+
